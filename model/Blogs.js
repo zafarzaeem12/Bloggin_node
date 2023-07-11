@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const BlogSchema = new mongoose.Schema({
     images: {
         type: Array ,
-        required : true
+        // required : true
     },
     videos: {
         type: Array ,
-        required : true
+        //required : true
     },
     description: {
         type: String,
@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     points: {
-        type: String,
+        type: Number,
         unique: true,
         required: true
     },
@@ -30,4 +30,4 @@ const UserSchema = new mongoose.Schema({
 },
     { timestamps: true }
 )
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Blog", BlogSchema);

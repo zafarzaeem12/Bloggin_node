@@ -1,13 +1,13 @@
 const router = require('express').Router();
+const MultipleImages = require('../middleware/multiImages')
+const MultipleVideos = require('../middleware/multivideos')
 const auth = require('../middleware/Authentication');
 const { 
-    Register_New_User ,
-    LoginRegisteredUser , 
-    VerifyRegisteredUser
-} = require('../controller/Users')
+    Create_New_Blog ,
+  
+} = require('../controller/Blogs')
 
-router.post('/create_new_User' , Register_New_User);
-router.post('/login' , LoginRegisteredUser);
-router.post('/welcome' ,auth ,VerifyRegisteredUser );
+router.post('/create_new_Blog' , MultipleImages.upload   ,  Create_New_Blog);
+
 
 module.exports = router
