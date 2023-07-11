@@ -1,0 +1,59 @@
+User Module
+-----------
+1) Register api (name , email , password , username , country ),
+2) Login api ( email , password ) : Token
+3) Welcome api ( name , email , username , country )
+
+Blog Module 
+-----------
+1 a) Create_Blogs api 
+{ 
+images : Array ,
+videos : Array , 
+description : String , 
+Points : Number ,
+Post_creater : Boolean ,
+user : Object_id
+}
+
+1 b) Get_all_Blogs
+{
+ 
+}
+
+2 a) Create_Reports api 
+{
+ Getapi --> blog_id : Blogs -> Object_Id, ==Populate==> User ->
+ isReported : Boolean,
+ report_description : String
+}
+
+2 b) Get_Report api 
+{
+ Getapi --> blog_id : Blogs -> Object_Id, ==Populate==> User ->,
+
+
+}
+
+
+3 a) Create_Comments api 
+{
+ Getapi --> blog_id : Blogs -> Object_Id, ==Populate==> User ->,
+ comment : String 
+}
+
+3 b) Get_comments_list api 
+{
+ against --> blog_id,
+} 
+
+4) Create_Like api 
+{
+ Getapi --> blog_id : Blogs -> Object_Id, ==Populate==> User ->, 
+ isLiked : Boolean
+}
+
+5) Blogs_Deleted 
+{
+ crone job after 24 hours aganist ----> blog_id
+}
