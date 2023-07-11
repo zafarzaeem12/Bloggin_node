@@ -1,27 +1,31 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        unique: true
+    images: {
+        type: Array ,
+        required : true
     },
-    username: {
-        type: String,
+    videos: {
+        type: Array ,
+        required : true
     },
-    email: {
+    description: {
         type: String,
         unique: true,
         required: true
     },
-    password: {
+    points: {
         type: String,
         unique: true,
         required: true
     },
-    country: {
-        type: String,
-        unique: true,
-        required: true
+    Post_creater: {
+        type: Boolean,
+       default: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User'
     },
 },
     { timestamps: true }

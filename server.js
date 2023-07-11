@@ -1,14 +1,18 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const UserRouter = require('./router/Users')
-
-
+const BloggingRouter = require('./router/Blogs')
+app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.json());
 app.use(cors());
-app.use('/UserAPI/',UserRouter)
+
+
+app.use('/UserAPI/', UserRouter);
+app.use('/BlogAPI/' , BloggingRouter );
 
 dotenv.config();
 
