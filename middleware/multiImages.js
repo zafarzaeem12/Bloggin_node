@@ -2,7 +2,7 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './public/Images')
+      cb(null, './public/Multi')
     },
     filename: function (req, file, cb) {
       const filename = file.originalname.split(' ').join('-')
@@ -12,15 +12,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage: storage,
-    limits : {
-        fieldSize : 1000000
-    },
-    fileFilter(req,file,cb){
-        if(!file.originalname.match(/\.(png|jpg)$/)){
-            return cb(new Error('Please error coming! '));
-        }
-        cb(undefined , true);
-    }
-}).array('images' , 4)
+}).fields( [{ name : 'images' , maxCount : 6} , { name : 'videos' , maxCount : 8}])
 
 module.exports ={ upload }

@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const UserRouter = require('./router/Users')
 const BloggingRouter = require('./router/Blogs')
+const CommentsRouter = require('./router/Comments')
+const ReportRouter= require('./router/Report')
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.json());
 app.use(cors());
@@ -13,7 +15,8 @@ app.use(cors());
 
 app.use('/UserAPI/', UserRouter);
 app.use('/BlogAPI/' , BloggingRouter );
-
+app.use('/CommentAPI/' , CommentsRouter );
+app.use('/ReportAPI/' , ReportRouter );
 dotenv.config();
 
 const port = process.env.PORT

@@ -16,7 +16,6 @@ const BlogSchema = new mongoose.Schema({
     },
     points: {
         type: Number,
-        unique: true,
         required: true
     },
     Post_creater: {
